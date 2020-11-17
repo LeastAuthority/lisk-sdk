@@ -38,6 +38,7 @@ const schema = {
 			type: 'array',
 			fieldNumber: 6,
 			items: {
+				type: 'object',
 				properties: {
 					fc: { fieldNumber: 3, dataType: 'string' },
 					fa: { fieldNumber: 1, dataType: 'string' },
