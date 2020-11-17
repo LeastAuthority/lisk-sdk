@@ -68,10 +68,14 @@ const schema = {
 // Single-property schemas, iterate through all schemas per input.
 
 function fuzz(input) {
+	fuzzEncoding(input, 'utf8');
+}
+
+function fuzzEncoding(input, encoding) {
 	let firstDecode;
 	const codec = new Codec();
 	try {
-		firstDecode = codec.decode(schema, Buffer.from(input, 'utf8'));
+		firstDecode = codec.decode(schema, Buffer.from(input, encoding));
 
 		// NB: ignore expected errors.
 	} catch (e) {
@@ -102,4 +106,5 @@ function fuzz(input) {
 
 module.exports = {
 	fuzz,
+	fuzzEncoding,
 };

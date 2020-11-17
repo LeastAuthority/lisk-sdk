@@ -1,8 +1,8 @@
-fuzz = require('./codec_fuzz').fuzz;
+fuzzEncoding = require('./codec_fuzz').fuzzEncoding;
 
-input = Buffer.from('d0800630000000800630f38e667b69177fa4', 'hex').toString('utf8');
+input = '80000000008000e348328000000000804800';
 try {
-	fuzz(input);
+	fuzzEncoding(input, 'hex');
 } catch (e) {
 	console.error(e);
 }
